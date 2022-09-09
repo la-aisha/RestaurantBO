@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +17,12 @@ import { CategoriesComponent } from './pages/menu/categories/categories.componen
 import { CategorysupplierComponent } from './pages/menu/categorysupplier/categorysupplier.component';
 import { ElementsComponent } from './pages/menu/elements/elements.component';
 import { SupplierComponent } from './pages/menu/supplier/supplier.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Ng2SearchPipe, Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { SearchPipe } from './search.pipe';
 
 @NgModule({
   declarations: [
@@ -35,12 +40,19 @@ import { SupplierComponent } from './pages/menu/supplier/supplier.component';
     CategoriesComponent,
     CategorysupplierComponent,
     ElementsComponent,
-    SupplierComponent
+    SupplierComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    Ng2OrderModule,
+    Ng2SearchPipeModule,
+    NgxPaginationModule,
+    FormsModule,
+    ReactiveFormsModule
+    
     
   ],
   providers: [],

@@ -29,6 +29,9 @@
 	<link rel="stylesheet" href="assets/assets/css/dark-theme.css" />
 	<link rel="stylesheet" href="assets/assets/css/semi-dark.css" />
 	<link rel="stylesheet" href="assets/assets/css/header-colors.css" />
+	<!-- file upload -->
+	<link href="assets/assets/plugins/fancy-file-uploader/fancy_fileupload.css" rel="stylesheet" />
+	<link href="assets/assets/plugins/Drag-And-Drop/dist/imageuploadify.min.css" rel="stylesheet" />
 	<title>Rukada - Responsive Bootstrap 5 Admin Template</title>
 
 
@@ -55,9 +58,12 @@
 	
 	<!-- Style css -->
     <link href="assets/assets-client/css/style.css" rel="stylesheet">
+ <link rel="preconnect" href="https://fonts.gstatic.com">
+ <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
-<body>
+<body class="mat-typography">
   <!--wrapper-->
 <app-root></app-root>
 
@@ -99,11 +105,33 @@
      <script src="assets/assets/client/js/styleSwitcher.js"></script>
      <script src="assets/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
 	<script src="assets/assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
+	<!-- file upload -->
+	<script src="assets/assets/plugins/fancy-file-uploader/jquery.ui.widget.js"></script>
+	<script src="assets/assets/plugins/fancy-file-uploader/jquery.fileupload.js"></script>
+	<script src="assets/assets/plugins/fancy-file-uploader/jquery.iframe-transport.js"></script>
+	<script src="assets/assets/plugins/fancy-file-uploader/jquery.fancy-fileupload.js"></script>
+	<script src="assets/assets/plugins/Drag-And-Drop/dist/imageuploadify.min.js"></script>
+	<!-- file upload sript -->
+	<script>
+		$('#fancy-file-upload').FancyFileUpload({
+			params: {
+				action: 'fileuploader'
+			},
+			maxfilesize: 1000000
+		});
+	</script>
+	<script>
+		$(document).ready(function () {
+			$('#image-uploadify').imageuploadify();
+		})
+	</script>
+	<!-- end file upload script -->
 	<script>
 		$(document).ready(function() {
 			$('#example').DataTable();
 		  } );
 	</script>
+
 	
 	<script>
 		$(document).ready(function() {
@@ -117,6 +145,7 @@
 		} );
 	</script>
 	<!--app JS-->
+
    
 </body>
 

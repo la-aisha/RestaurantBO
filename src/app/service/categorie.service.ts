@@ -15,9 +15,23 @@ export class CategorieService {
     this.apiUrl = 'http://127.0.0.1:8000/api';
 
   }
-/* ---- get all categories */
+
+  /* ---- get all categories ---- */
   GetCategories(){
-    const url = `${this.apiUrl}/${environment.apiEndpoints.categorie}`;
+    const url = `${environment.API_URL}/${environment.apiEndpoints.categorie}`;
     return this.http.get(url);
+  }
+  /* ---- get all categories ---- */
+   AddCategorie(data : any ){
+    //const headers = new Headers().set('Content-Type', 'application/json')
+    //headers = new Headers().set('Content-Type', 'application/json');
+    const url = `${environment.API_URL}/${environment.apiEndpoints.categorie}`;
+    return this.http.post(url,data);
+  }
+
+   /* ---- update categories ---- */
+   UpdateCategorie(id : number ,data : any){
+    const url = `${environment.API_URL}/${environment.apiEndpoints.categorie}/${id}`;
+    return this.http.put(url,data);
   }
 }

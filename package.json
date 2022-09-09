@@ -1,6 +1,17 @@
 {
   "name": "bo",
   "version": "0.0.0",
+  "description": "Angular - the http service",
+  "main": "./bundles/http.umd.js",
+  "module": "./fesm5/http.js",
+  "es2015": "./fesm2015/http.js",
+  "esm5": "./esm5/http.js",
+  "esm2015": "./esm2015/http.js",
+  "fesm5": "./fesm5/http.js",
+  "fesm2015": "./fesm2015/http.js",
+  "typings": "./http.d.ts",
+  "author": "angular",
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -11,15 +22,20 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^14.1.0",
+    "@angular/cdk": "^14.2.0",
     "@angular/common": "^14.1.0",
     "@angular/compiler": "^14.1.0",
     "@angular/core": "^14.1.0",
     "@angular/forms": "^14.1.0",
+    "@angular/material": "^14.2.0",
     "@angular/platform-browser": "^14.1.0",
     "@angular/platform-browser-dynamic": "^14.1.0",
     "@angular/router": "^14.1.0",
     "bootstrap": "^5.2.0",
+    "ng2-order-pipe": "^0.1.5",
+    "ng2-search-filter": "^0.5.1",
     "ngx-bootstrap": "^9.0.0",
+    "ngx-pagination": "^6.0.2",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -36,5 +52,34 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "typescript": "~4.7.2"
+  },
+  "ng-update": {
+    "packageGroup": [
+      "@angular/core",
+      "@angular/bazel",
+      "@angular/common",
+      "@angular/compiler",
+      "@angular/compiler-cli",
+      "@angular/animations",
+      "@angular/elements",
+      "@angular/platform-browser",
+      "@angular/platform-browser-dynamic",
+      "@angular/forms",
+      "@angular/http",
+      "@angular/platform-server",
+      "@angular/platform-webworker",
+      "@angular/platform-webworker-dynamic",
+      "@angular/upgrade",
+      "@angular/router",
+      "@angular/language-service",
+      "@angular/service-worker"
+    ]
+  },
+  "sideEffects": false,
+  "peerDependencies": {
+    "rxjs": "^6.0.0",
+    "@angular/core": "8.0.0-beta.10+108.sha-98f8b0f.with-local-changes",
+    "@angular/platform-browser": "8.0.0-beta.10+108.sha-98f8b0f.with-local-changes"
   }
+
 }
