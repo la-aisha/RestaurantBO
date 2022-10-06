@@ -1,0 +1,90 @@
+
+    const httpOptions = {
+    transformRequest :'angular.identity' ,
+
+    headers: new HttpHeaders({
+      'Content-Type': 'multipart/form-data; boundary=<calculated when request is sent>' ,
+      'Accept' : '*/*'
+
+
+    })
+    };
+    
+[...fd] // shortest devtool solution
+console.log(...fd) // shortest script solution
+console.log([...fd]) // Think 2D array makes it more readable
+console.table([...fd]) // could use console.table if you like that
+console.log(Object.fromEntries(fd)) // Works if all fields are uniq
+console.table(Object.fromEntries(fd)) // another representation in table form
+new Response(fd).text().then(console.log) // To see the entire raw body
+
+
+
+
+
+      this.http.post("http://127.0.0.1:8000/api/categories",{
+        params: {
+          libelle: formData.get('libelle')?.valueOf(),
+        },
+        observe: 'response'
+      })
+      .toPromise()
+      .then(response => {
+        console.log('la rep',response);
+      })
+      .catch(console.log);
+ //console.log("---event de file ",event);
+  const file64 = event.target.files[0];
+  const reader = new FileReader();
+   
+  reader.readAsDataURL(file64);
+   reader.onload = () => {
+
+   console.log("le data image recu ",reader.result);
+   /*  this.formCat.patchValue({
+      file: reader.result,
+    });   */
+    //this.formCat.updateValueAndValidity();
+   
+  };
+
+   reader.onload = this._handleReaderLoaded.bind(this);
+  //reader.readAsDataURL(file64);
+ 
+ 
+  let extensionAllowed: any = { "png": true, "jpeg": true , "jpg" : true , "webp" : true , "avif":true};
+  let file = event.target.files[0];
+  if (file.size / 1024 / 1024 > 20) {
+    alert("File size should be less than 20MB")
+    return;
+  }
+  if (extensionAllowed) {
+    var nam = file.name.split('.').pop();
+    if (!extensionAllowed[nam]) {
+      alert("Please upload " + Object.keys(extensionAllowed) + " file.")
+      return;
+    }
+  }
+  this.formCat.controls["file"].setValue(file);
+  let rest =   this.formCat.controls["file"].setValue(file);
+
+  console.log("test --------",rest) ;
+
+
+ 
+ 
+}
+
+_handleReaderLoaded(e : any) {
+  let reader = e.target;
+  this.imageSrc = reader.result;
+  console.log("la valeur de image src",this.imageSrc) ;
+
+  
+
+  this.formCat.value.file = this.imageSrc ;
+  //this.formD.append('file',this.formCat.value.file);
+
+  
+}
+ 

@@ -54,7 +54,7 @@
 											<div class="card-title d-flex align-items-center">
 												<div><i class="bx bx-grid-alt me-1 font-22 text-primary"></i>
 												</div>
-												<h5 class="mb-0 text-primary">Add category</h5>
+												<h5 class="mb-0 text-primary">{{titleModal}} CATEGORIE </h5>
 											</div>
 											<hr/>
 											<form [formGroup]="formCat" (ngSubmit)="onSubmit()"  enctype="multipart/form-data; boundary=<calculated when request is sent>">
@@ -73,15 +73,15 @@
 													<textarea class="form-control" formControlName="description" id="inputAddress4" name="" rows="3" placeholder="description"></textarea>
 												</div>
 											</div>
-											<!-- <div class="row mb-3">						
+											<div class="row mb-3">						
 												<label for="inputAddress4" class="col-sm-3 col-form-label">Select File</label>
 												<div class="col-sm-9">
-													<img [src]="imageSrc" style="max-width:80px;max-height:80px"/>
+													<img [src]="imageSrc" style="max-width:100px;max-height:100px"/>
 
-													<input class="form-control" (change)="photoFile($event)" formControlName="file"  [src]="imageSrc" name =""  accept="image/* " type="file"  multiple />
+													<input class="form-control" (change)="photoFile($event )"   [src]="imageSrc" name =""  accept="image/* " type="file"  multiple />
 												</div>
 
-											</div> -->
+											</div>
 											<div class="row mb-3">						
 												<label for="inputAddress4" class="col-sm-3 col-form-label">Select File</label>
 												<div class="col-sm-9">
@@ -159,8 +159,8 @@
                                         </div></td>
 										<td>
 											<div class="d-flex order-actions">
-												<a type="button"  class="btn btn-info"><i class='bx bxs-edit'></i></a>
-												<a href="javascript:;" class="ms-3"><i class='bx bxs-trash'></i></a>
+												<a type="button"  data-bs-toggle="modal" data-bs-target="#exampleVerticallycenteredModal" (click)="setCatModif(cats)" class="btn btn-info"><i class='bx bxs-edit'></i></a>
+												<a type="submit"  (click)="delCat(cats.id)" class="ms-3"><i class='bx bxs-trash'></i></a>
 											</div>
 										</td>
 									</tr>

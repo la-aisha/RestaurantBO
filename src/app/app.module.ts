@@ -17,12 +17,13 @@ import { CategoriesComponent } from './pages/menu/categories/categories.componen
 import { CategorysupplierComponent } from './pages/menu/categorysupplier/categorysupplier.component';
 import { ElementsComponent } from './pages/menu/elements/elements.component';
 import { SupplierComponent } from './pages/menu/supplier/supplier.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Ng2SearchPipe, Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { SearchPipe } from './search.pipe';
+import { TokenInterceptor } from './interceptor/interceptor';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { SearchPipe } from './search.pipe';
     CategorysupplierComponent,
     ElementsComponent,
     SupplierComponent,
-    SearchPipe
+    SearchPipe ,
+    
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,7 @@ import { SearchPipe } from './search.pipe';
     
     
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

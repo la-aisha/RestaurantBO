@@ -23,15 +23,17 @@ export class CategorieService {
   }
   /* ---- get all categories ---- */
    AddCategorie(data : any ){
-    //const headers = new Headers().set('Content-Type', 'application/json')
-    //headers = new Headers().set('Content-Type', 'application/json');
     const url = `${environment.API_URL}/${environment.apiEndpoints.categorie}`;
     return this.http.post(url,data);
   }
-
-   /* ---- update categories ---- */
+  /* ---- update categories ---- */
    UpdateCategorie(id : number ,data : any){
     const url = `${environment.API_URL}/${environment.apiEndpoints.categorie}/${id}`;
     return this.http.put(url,data);
+  }
+  /* ---- delete categories ---- */
+  DeleteCategorie(id: number): Observable<any> {
+    const url = `${environment.API_URL}/${environment.apiEndpoints.categorie}/${id}`;
+    return this.http.delete(url);
   }
 }
